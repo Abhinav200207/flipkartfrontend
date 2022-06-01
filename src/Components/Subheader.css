@@ -1,0 +1,15 @@
+.subheader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 35px;
+    padding-left: 150px;
+    padding-right: 150px;
+    box-shadow: 0 0 3px rgba(44, 127, 146, 0.719);
+}
+
+.subheader>div {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
