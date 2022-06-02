@@ -1,10 +1,11 @@
 import React from 'react'
 import "./Header.css";
 import logo from '../Images/flipkart.jpg'
-import { ArrowDropDown, Search, ShoppingCart } from '@mui/icons-material';
+import { Search, ShoppingCart } from '@mui/icons-material';
 import { Button } from '@mui/material';
+import FadeMenu from './PopUpMenu';
 
-const Header = () => {
+const Headers = () => {
   return (
     <div className="header">
       <div className="logodiv">
@@ -24,13 +25,7 @@ const Header = () => {
 
 
         <div className="dropdown">
-          <span className="dropbtn" style={{ "color": "white" }}>More</span>
-          <ArrowDropDown style={{ "color": "white" }} />
-          <div class="dropdown-content">
-            <a href>Link 1</a>
-            <a href>Link 2</a>
-            <a href>Link 3</a>
-          </div>
+          <FadeMenu/>
         </div>
 
 
@@ -43,4 +38,4 @@ const Header = () => {
   )
 }
 
-export default Header
+export default Headers
