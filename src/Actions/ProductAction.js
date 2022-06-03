@@ -5,7 +5,7 @@ export const getProduct = (linkin) => async (dispatch) => {
     try {
         dispatch({ type: ALL_PRODUCT_REQUEST });
 
-        let link = `http://localhost:4000/api/v1/products${linkin}`
+        let link = `https://flipkartab.herokuapp.com/api/v1/products${linkin}`
         const { data } = await axios.get(link);
 
 

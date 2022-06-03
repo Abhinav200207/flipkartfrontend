@@ -3,7 +3,7 @@ import "./style/card.css";
 
 export default function Card({ product }) {
 
-    return product.loading ? (<CircularProgress/>) : (
+    return product.loading ? (<div style={{"height":"500px","display":"flex","alignItems":"center","justifyContent":"center"}}><CircularProgress style={{"height":"150px","width":"150px"}} /></div>) : (
         <div>{
             product.message && product.message.products.length > 0 ? (
                 <div className="cardList">
