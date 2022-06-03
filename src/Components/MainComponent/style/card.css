@@ -7,8 +7,8 @@
     font-family: 'Lora', serif;
 }
  .cardList{
-    display:flex;
-    align-items: flex-start;
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
 }
 .card{
     display:flex;

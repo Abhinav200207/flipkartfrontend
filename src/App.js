@@ -30,7 +30,7 @@ function App() {
             </Item>
           </Grid>
           <Grid item xs={9.5}>
-            <Item>
+            <Item style={{"minHeight":"600px"}}>
               <Sort />
             </Item>
           </Grid>

@@ -1,14 +1,22 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
+import { useSelector, useDispatch } from "react-redux";
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Card from './card';
+import { changeLinkSort, getProduct } from "../../Actions/ProductAction";
 
 
 
 export default function Sort() {
+  const dispatch = useDispatch();
+  const product = useSelector((state) => state.productReducer);
+  const { link } = useSelector((state) => state.linkReducer);
+
+
+
   function TabPanel(props) {
     const { children, value, index, ...other } = props;
 
@@ -44,32 +52,49 @@ export default function Sort() {
   const [value, setValue] = React.useState(1);
 
   const handleChange = (event, newValue) => {
+    // console.log(newValue);
+    if (newValue === 1) {
+      dispatch(changeLinkSort(link, "", ""))
+    }
+    if (newValue === 3) {
+      dispatch(changeLinkSort(link, "sortby", "asc"))
+    }
+    if (newValue === 2) {
+      dispatch(changeLinkSort(link, "sortby", "desc"))
+    }
+    if (newValue === 4) {
+      dispatch(changeLinkSort(link, "popular", "1"))
+    }
     setValue(newValue);
   };
+
+  React.useEffect(() => {
+    dispatch(getProduct(link))
+  }, [dispatch, link])
 
   return (
     <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
           <Tab label="Sort by" disabled />
-          <Tab label="Popularity" {...a11yProps(1)} />
+          <Tab label="Newest First" {...a11yProps(1)} />
           <Tab label="Price-High To Low" {...a11yProps(2)} />
           <Tab label="Price-Low To High" {...a11yProps(3)} />
-          <Tab label="Newest First" {...a11yProps(4)} />
+          <Tab label="Popularity" {...a11yProps(4)} />
         </Tabs>
       </Box>
 
       <TabPanel value={value} index={1}>
-        <Card />
+        <Card product={product} />
       </TabPanel>
       <TabPanel value={value} index={2}>
-        Item Three
+        <Card product={product} />
       </TabPanel>
       <TabPanel value={value} index={3}>
-        Item Three
+        <Card product={product} />
       </TabPanel>
       <TabPanel value={value} index={4}>
-        Item Three
+        <Card product={product} />
       </TabPanel>
     </Box>
   );

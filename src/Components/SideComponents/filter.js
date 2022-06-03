@@ -1,5 +1,4 @@
 import React from "react"
-import Cateogary from "./components/cateogary"
 import Brand from "./components/brand"
 import Rating from "./components/rating"
 import Offer from "./components/offers"
@@ -16,13 +15,7 @@ export default function Filter() {
 
 
 
-    const filter = [{
-        key: 0,
-        name: "Cateogary",
-        tag: <Cateogary />,
-        panel: "panel0",
-
-    }, {
+    const filter = [ {
         key: 1,
         name: "Brand",
         tag: <Brand />,

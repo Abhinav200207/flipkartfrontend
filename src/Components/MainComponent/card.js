@@ -1,9 +1,9 @@
-import { useSelector } from "react-redux";
+import { CircularProgress } from "@mui/material";
 import "./style/card.css";
-export default function Card() {
-    const product = useSelector((state) => state.productReducer);
 
-    return product.loading ? (<div>Hello</div>) : (
+export default function Card({ product }) {
+
+    return product.loading ? (<CircularProgress/>) : (
         <div>{
             product.message && product.message.products.length > 0 ? (
                 <div className="cardList">
@@ -17,12 +17,12 @@ export default function Card() {
                                 <div className="details">
                                     <div className="title"><b>{card.name}</b></div>
                                     <div className="ratings">
-                                        <div className="ratings-star">{`${card.rating}`}</div>
+                                        <div className="ratings-star">{`${card.rating}`}{`★`}</div>
                                         <div className="ratings-no">{`(${card.numberofratings})`}</div>
                                     </div>
                                     <div className="price">
                                         <div className="discount-price">{`₹ ${(card.price - ((card.price * card.discount) / 100))}`}</div>
-                                        <div className="actual-price">{card.price}</div>
+                                        <div className="actual-price">{`₹ ${card.price}`}</div>
                                         <div className="discount-percentage">{`${card.discount}%`}</div>
 
                                     </div>
