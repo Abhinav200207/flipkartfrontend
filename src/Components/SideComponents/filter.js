@@ -34,7 +34,7 @@ export default function Filter() {
         panel: "panel2",
     }, {
         key: 3,
-        name: "OFFERS",
+        name: "Discounts",
         tag: <Offer />,
         panel: "panel3",
     }]
@@ -42,7 +42,7 @@ export default function Filter() {
     const val = filter.map((current) => {
 
         return (
-            <Accordion >
+            <Accordion key={current.key}>
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls={`${current.panel}a-content`}
